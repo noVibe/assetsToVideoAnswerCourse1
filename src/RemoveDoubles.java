@@ -1,35 +1,20 @@
-import java.util.ArrayList;
-
+import java.util.HashSet;
 public class RemoveDoubles {
-
-
     String[] arr;
-    ArrayList<String> copiesOut = new ArrayList<>();
+    HashSet<String> copiesOut = new HashSet<>();
     StringBuilder answer = new StringBuilder();
-    boolean isCopy = false;
-
     public RemoveDoubles(String[] arr) {
         this.arr = arr;
     }
-
     public void show() {
         for (String bit : arr) {
-            for (String i : copiesOut) {
-                if (bit.equals(i)) {
-                    isCopy = true;
-                    break;
-                }
-            }
-            if (isCopy) {
+            if (copiesOut.contains(bit)) {
                 continue;
             }
             copiesOut.add(bit);
             answer.append(bit);
-            isCopy = false;
         }
-
         System.out.println(answer);
-
     }
 }
 
